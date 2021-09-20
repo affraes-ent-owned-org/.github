@@ -5,18 +5,27 @@ on:
   pull_request:
 
 jobs:
-  CodeQL-Build:
-    strategy:
-      fail-fast: false
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Initialize CodeQL
-      uses: github/codeql-action/init@v1
-      with:
-        queries: security-and-quality
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v1
-    - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v1
+  # CodeQL-Build:
+  #   strategy:
+  #     fail-fast: false
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - name: Checkout repository
+  #     uses: actions/checkout@v2
+  #   - name: Initialize CodeQL
+  #     uses: github/codeql-action/init@v1
+  #     with:
+  #       queries: security-and-quality
+  #   - name: Autobuild
+  #     uses: github/codeql-action/autobuild@v1
+  #   - name: Perform CodeQL Analysis
+  #     uses: github/codeql-action/analyze@v1
+
+  build:
+  runs-on: ubuntu-latest
+
+  steps:
+    - uses: actions/checkout@v2
+
+    - name: Run a one-line script
+      run: echo Hello from Octo Organization
